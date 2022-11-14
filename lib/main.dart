@@ -11,21 +11,34 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.amber[900],
         centerTitle: true,
       ),
-      body: Center(
-        
-          child: ElevatedButton(
-        onPressed: () => {
-          
-        },
-        child: Text(
-          "click me",
-          style: TextStyle(
-              fontFamily: 'IndieFlower',
-              color: Colors.black12,
-              fontWeight: FontWeight.bold),
-        ),
-        style: ElevatedButton.styleFrom(primary: Colors.pink[100]),
-      )),
+      body: Row(
+        children: [
+          Expanded(
+              flex: 2,
+              child: Image(image: AssetImage('web/icons/Icon-192.png'))),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.cyan,
+              child: Text("1"),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.pinkAccent,
+              child: Text("2"),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(10.0),
+              color: Colors.lime,
+              child: Text("3"),
+            ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         child: Text("More"),
         backgroundColor: Color.fromARGB(255, 154, 190, 206),
@@ -54,3 +67,40 @@ class Home extends StatelessWidget {
     // Icon(Icons.airport_shuttle,
     //    size: 50,
     //     ),
+    //adding icons to elevated icons
+        //  child: ElevatedButton.icon(
+        //       onPressed: () {},
+        //       icon: Icon(Icons.mail),
+        //       label: Text("Mail Me"),
+        //       style: ElevatedButton.styleFrom(
+        //         primary: Color.fromRGBO(154, 164, 182, 1),
+        //       ))
+        //add icon like button
+      //    Center(
+      //     child: IconButton(
+      //   onPressed: () => {print('hi')},
+      //   icon: Icon(Icons.access_alarm_rounded),
+      //   color: Colors.lightGreen,
+      // )),
+
+      //row, column
+      // Column(
+      //   mainAxisAlignment: MainAxisAlignment.start,
+      //   crossAxisAlignment: CrossAxisAlignment.start,
+      //   children: [
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: [Text("hello 2"), Text("hello one"), Text("hello 3")],
+      //     ),
+      //     TextButton(
+      //       onPressed: () => {print("you clicked me hahah")},
+      //       child: Text("please press me"),
+      //       style: TextButton.styleFrom(primary: Colors.amber),
+      //     ),
+      //     Container(
+      //       color: Colors.pink,
+      //       padding: EdgeInsets.all(30.0),
+      //       child: Text("a pink container"),
+      //     ),
+      //   ],
+      // ),
