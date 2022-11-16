@@ -1,54 +1,124 @@
 import 'package:flutter/material.dart';
+import './quote.dart';
 
-void main() => runApp(MaterialApp(home: Home()));
+void main() => runApp(MaterialApp(home: QuoteList()));
 
-class Home extends StatelessWidget {
+class QuoteList extends StatefulWidget {
+  @override
+  _QuoteListState createState() => _QuoteListState();
+}
+
+class _QuoteListState extends State<QuoteList> {
+  List<String> quote = [
+    "i am a 3rd year software engineering student",
+    "i am a 1st year software engineering student",
+    "i am a 3rd year electrical engineering student"
+  ];
+  List<Quote> quotes = [
+    Quote(
+        text: "So Lazmi you were finally able to leave Raees, Congo!!!",
+        author: "Lazmi's Friend"),
+    Quote(
+        text:
+            "I onyl remmebered you with the song names circles by post malone",
+        author: "Raees Khan"),
+    Quote(
+        text: "Where is your ex boyfriend raees doing now , Toya ",
+        author: "Toya's Mom"),
+  ];
+
+  Widget quoteTemplate(quote) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Card(
+        margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${quote.text} ',
+              style: TextStyle(fontSize: 18, color: Colors.grey),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              '${quote.author} ',
+              style: TextStyle(fontSize: 18, color: Colors.grey[800]),
+            ),
+          ),
+        ]),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Beauty Salon Bar"),
-        backgroundColor: Colors.amber[900],
-        centerTitle: true,
+        title: Center(child: Text('List App')),
       ),
-      body: Row(
-        children: [
-          Expanded(
-              flex: 2,
-              child: Image(image: AssetImage('web/icons/Icon-192.png'))),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(10.0),
-              color: Colors.cyan,
-              child: Text("1"),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(10.0),
-              color: Colors.pinkAccent,
-              child: Text("2"),
-            ),
-          ),
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(10.0),
-              color: Colors.lime,
-              child: Text("3"),
-            ),
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+            children: quotes.map((q) {
+          return quoteTemplate(q);
+        }).toList()),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Text("More"),
-        backgroundColor: Color.fromARGB(255, 154, 190, 206),
-        hoverColor: Colors.amber[600],
-        onPressed: () => {print('You pressed the button.')},
-      ),
-      backgroundColor: Color.fromARGB(255, 247, 233, 227),
     );
   }
 }
+// class Home extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text("Beauty Salon Bar"),
+//         backgroundColor: Colors.amber[900],
+//         centerTitle: true,
+//       ),
+//       body: Row(
+//         children: [
+//           Expanded(
+//               flex: 2,
+//               child: Image(image: AssetImage('web/icons/Icon-192.png'))),
+//           Expanded(
+//             child: Container(
+//               padding: EdgeInsets.all(10.0),
+//               color: Colors.cyan,
+//               child: Text("1"),
+//             ),
+//           ),
+//           Expanded(
+//             child: Container(
+//               padding: EdgeInsets.all(10.0),
+//               color: Colors.pinkAccent,
+//               child: Text("2"),
+//             ),
+//           ),
+//           Expanded(
+//             child: Container(
+//               padding: EdgeInsets.all(10.0),
+//               color: Colors.lime,
+//               child: Text("3"),
+//             ),
+//           ),
+//         ],
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         child: Text("More"),
+//         backgroundColor: Color.fromARGB(255, 154, 190, 206),
+//         hoverColor: Colors.amber[600],
+//         onPressed: () => {print('You pressed the button.')},
+//       ),
+//       backgroundColor: Color.fromARGB(255, 247, 233, 227),
+//     );
+//   }
+// }
 //(how to add text styles and fonts)
     // Text(
     //       "We have many offers today!",
